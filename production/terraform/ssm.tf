@@ -5,9 +5,9 @@ resource "aws_ssm_parameter" "sandbox_ssm" {
     value = "${data.aws_caller_identity.current.account_id}"
 }
 
-# Create an SSM paramter indicating this is Sandbox
+# Create an SSM paramter indicating this is production
 resource "aws_ssm_parameter" "production_ssm" {
     name = "/Workload"
     type = "String"
-    value = "SANDBOX"
+    value = "PRODUCTION"
 }
