@@ -12,3 +12,18 @@ provider "aws" {
     }
   }
 }
+
+
+# Alternate Provider pointing to Root(MasterPayer)
+provider "aws" {
+  alias  = "ssogroups"
+  region = "{{ provider_region }}"
+  assume_role {
+    role_arn    = "arn:aws:iam::161277832128:role/AWSAFTExecution"
+  }
+  default_tags {
+    tags = {
+      managed_by                  = "AFT"
+    }
+  }
+}
