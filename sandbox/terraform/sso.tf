@@ -18,7 +18,7 @@ data "aws_identitystore_group" "example" {
   }
 }
 
-data "aws_caller_identity" "current" {}
+data "aws_caller_identity" "current_acct" {}
 
 resource "aws_ssoadmin_account_assignment" "example" {
   provider = aws.ssogroups
@@ -28,6 +28,6 @@ resource "aws_ssoadmin_account_assignment" "example" {
   principal_id   = data.aws_identitystore_group.example.group_id
   principal_type = "GROUP"
 
-  target_id   = data.aws_caller_identity.current.account_id
+  target_id   = data.aws_caller_identity.current_acct.account_id
   target_type = "AWS_ACCOUNT"
 }
