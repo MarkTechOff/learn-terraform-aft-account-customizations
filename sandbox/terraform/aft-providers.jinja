@@ -19,8 +19,7 @@ provider "aws" {
   alias  = "ssogroups"
   region = "{{ provider_region }}"
   assume_role {
-#    role_arn    = "arn:aws:iam::161277832128:role/AWSAFTExecution"
-     role_arn    = "arn:aws:iam::383048660984:role/AWSAFTExecution"
+  role_arn    = "arn:aws:iam::161277832128:role/AWSAFTExecution"
   }
   default_tags {
     tags = {
