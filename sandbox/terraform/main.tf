@@ -18,3 +18,14 @@ module "sso_permissions" {
     group_name = "NGLZ_AD_SYNC@microfocusdev.com"
     permissionset_name = "AWSReadOnlyAccess"
 }
+
+
+module "sso_permissions" {
+    source = "../../modules/sso" 
+    providers = {
+      aws.ssogroups = aws.ssogroups
+    }
+    account_id = "${data.aws_caller_identity.current.account_id}"
+    group_name = "Enterprise Admins@microfocusdev.com"
+    permissionset_name = "ViewOnlyAccess"
+}
