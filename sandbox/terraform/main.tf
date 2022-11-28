@@ -20,7 +20,7 @@ module "sso_permissions" {
 }
 
 
-module "sso_permissions" {
+module "sso_permissions2" {
     source = "../../modules/sso" 
     providers = {
       aws.ssogroups = aws.ssogroups
