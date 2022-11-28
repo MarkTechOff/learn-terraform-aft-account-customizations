@@ -16,7 +16,7 @@ module "sso_permissions" {
     }
     account_id = "${data.aws_caller_identity.current.account_id}"
     group_name = "NGLZ_AD_SYNC@microfocusdev.com"
-    permissionset_name = "AWSReadOnlyAccess"
+    permissionset_name = "AWSPowerUserAccess"
 }
 
 
