@@ -11,7 +11,9 @@ resource "aws_budgets_budget" "total_cost" {
 
 module "sso_permissions" {
     source = "../../modules/sso" 
-
+    providers = {
+      aws.ssogroups = aws.ssogroups
+    }
     account_id = "${data.aws_caller_identity.current.account_id}"
     group_name = "NGLZ_AD_SYNC@microfocusdev.com"
     permissionset_name = "AWSReadOnlyAccess"
