@@ -50,7 +50,8 @@ data "aws_identitystore_group" "sso_group" {
 # Create permission set assignment   (group, account, permission set)
 resource "aws_ssoadmin_account_assignment" "sso_assign" {
   provider = aws.ssogroups
-  instance_arn       = tolist(data.aws_ssoadmin_instances.example.arns)[0]
+  #instance_arn       = tolist(data.aws_ssoadmin_instances.example.arns)[0]
+  instance_arn       = data.aws_ssoadmin_permission_set.sso_permset.instance_arn
   permission_set_arn = data.aws_ssoadmin_permission_set.sso_permset.arn
 
   principal_id   = data.aws_identitystore_group.sso_group.group_id
